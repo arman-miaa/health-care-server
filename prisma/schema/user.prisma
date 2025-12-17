@@ -23,8 +23,7 @@ model Admin {
   isDeleted     Boolean  @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-
-  user User @relation(fields: [email], references: [email])
+  user          User     @relation(fields: [email], references: [email])
 
   @@map("admins")
 }
@@ -47,10 +46,10 @@ model Doctor {
   averageRating       Float               @default(0.0)
   createdAt           DateTime            @default(now())
   updatedAt           DateTime            @updatedAt
-  user                User                @relation(fields: [email], references: [email])
-  doctorSpecialties   DoctorSpecialties[]
-  doctorSchedules     DoctorSchedules[]
   appointment         Appointment[]
+  doctorSchedules     DoctorSchedules[]
+  doctorSpecialties   DoctorSpecialties[]
+  user                User                @relation(fields: [email], references: [email])
   prescription        Prescription[]
   review              Review[]
 
@@ -58,20 +57,19 @@ model Doctor {
 }
 
 model Patient {
-  id            String   @id @unique @default(uuid())
-  email         String   @unique
-  name          String
-  profilePhoto  String?
-  contactNumber String?
-  address       String?
-  isDeleted     Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  user              User               @relation(references: [email], fields: [email])
-  patientHealthData PatientHealthData?
-  medicalReport     MedicalReport[]
+  id                String             @id @unique @default(uuid())
+  email             String             @unique
+  name              String
+  profilePhoto      String?
+  contactNumber     String?
+  address           String?
+  isDeleted         Boolean            @default(false)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
   appointment       Appointment[]
+  medicalReport     MedicalReport[]
+  patientHealthData PatientHealthData?
+  user              User               @relation(fields: [email], references: [email])
   prescription      Prescription[]
   review            Review[]
 
