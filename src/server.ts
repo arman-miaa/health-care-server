@@ -7,6 +7,8 @@ import config from './config';
 async function bootstrap() {
     // This variable will hold our server instance
     let server: Server;
+   
+
 
     try {
         // Seed super admin
