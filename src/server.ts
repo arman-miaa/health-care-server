@@ -7,8 +7,7 @@ import config from './config';
 async function bootstrap() {
     // This variable will hold our server instance
     let server: Server;
-    console.log("DATABASE_URL:", process.env.DATABASE_URL);
-    console.log("TYPE:", typeof process.env.DATABASE_URL);
+   
 
 
     try {
