@@ -19,10 +19,12 @@ app.post(
     PaymentController.handleStripeWebhookEvent
 );
 
-app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
-    credentials: true
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://health-care-blond.vercel.app"],
+    credentials: true,
+  })
+);
 
 //parser
 app.use(express.json());
